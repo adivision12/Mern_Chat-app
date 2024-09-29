@@ -1,0 +1,8 @@
+@media (max-width:500px) {
+    .users{
+        display: none !important;
+    }
+    .c-w{
+        width: 100% !important;
+    }
+}
