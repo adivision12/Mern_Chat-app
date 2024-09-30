@@ -75,7 +75,7 @@ export default function Input() {
       setLoading(true)
       // const token=JSON.parse(localStorage.getItem("userInfo")).token;
       const token=authUser.token;
-      let result = await fetch(`http://localhost:8080/msg/send/${selectedConversation._id}`, {
+      let result = await fetch(`/msg/send/${selectedConversation._id}`, {
         method: "POST",
         body: JSON.stringify({message}),
         Credentials:"include",
