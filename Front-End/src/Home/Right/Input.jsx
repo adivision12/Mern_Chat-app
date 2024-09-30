@@ -80,7 +80,7 @@ export default function Input() {
     
       <div className='flex  justify-center  bottom-5 w-[60%] ml-[5%] max-[500px]:w-[90%] '>
        
-        <input type="text" name='message' value={message} onChange={inputHandle} placeholder="Write Something" className="input input-bordered max-[500px]:absolute max-[500px]:focus:bottom-25   bg-slate-900 border-white text-white w-[100%]" />
+        <input type="text" name='message' value={message} onChange={inputHandle} placeholder="Write Something" className="input input-bordered  max-[500px]:focus:bottom-25   bg-slate-900 border-white text-white w-[100%]" />
        <button> <i  className="fa-solid fa-share mx-4 px-3 py-3  text-white border rounded-lg hover:bg-gray-600 text-xl"></i></button>
     </div>
     </form>
