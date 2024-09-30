@@ -19,7 +19,6 @@ const [noti,setNoti]=useState([]);
 const [isSideBar,setIsSidebar]=useState(true);
 const [searchUser,setSearchUser]=useState([]);
 const [newMessageAvl,setNewMessageAvl]=useState();
-console.log(authUser);
         useEffect(()=>{
 
             if(authUser?._id){
