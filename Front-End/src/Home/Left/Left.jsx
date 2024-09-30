@@ -51,11 +51,11 @@ const { isOpen, onOpen, onClose } = useDisclosure()
           <Logout/>
     <div>
    <div className='flex justify-between  '>
-   <div className='text-3xl mx-10 font-bold'>
+   <div className='text-3xl mx-10 my-2 font-bold'>
         Chats
         </div>
         <div className='min-[500px]:hidden'>
-            <i onClick={handleNoti} className={`absolute top-2 fa-regular  fa-bell text-white right-[25%] hover:bg-slate-500   p-2 rounded-full`}>
+            <i onClick={handleNoti} className={`absolute top-2 fa-regular  fa-bell text-white right-[25%] hover:bg-slate-500  border p-2 rounded-full`}>
             <div className='absolute top-0 right-0'> <NotificationBadge  count={noti.length} effect={Effect.SCALE}/>
             </div>
             </i>
