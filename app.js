@@ -30,14 +30,13 @@ app.use(cookieParser())
 
 app.use("/user",userRouter);
 app.use("/msg",msgRouter);
-
-if(process.env.NODE_ENV ==="production"){
+if(process.env.NODE_ENV==="production"){
   const dirPath=path.resolve();
-    app.use(express.static('./Front-End/dist'));
+    app.use(express.static(path.join(dirPath,'./Front-End/dist')));
     app.get("*",(req,res)=>{
-      res.sendFile(path.resolve(dirPath,'./Front-End/dist','index.html'));
+      res.sendFile(path.resolve(dirPath,'Front-End','dist','index.html'));
     })
-}
+  }
 
 server.listen(8080,()=>{
     console.log("Server is running on port 8080");
