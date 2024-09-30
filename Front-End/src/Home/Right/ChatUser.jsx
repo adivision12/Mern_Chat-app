@@ -7,16 +7,13 @@ import { Button, Image,Text, Modal, ModalBody, ModalCloseButton, ModalContent, M
 import NotificationBadge from 'react-notification-badge';
 import {Effect} from 'react-notification-badge';
 export default function ChatUser() {
-  // const user=JSON.parse(localStorage.getItem("userInfo"));
   const {selectedConversation,setSelectedConversation}=userConversation();
-  // const { socket, } = useSocketContext();
   const navigate=useNavigate();
 const {socket,onlineUsers,noti,setNoti,isSideBar,setIsSidebar,newMessageAvl,setNewMessageAvl}=useSocketContext();
 const isOnline=onlineUsers.includes(selectedConversation._id);
 const [notiClass,setNotiClass]=useState('hidden')
 const { isOpen, onOpen, onClose } = useDisclosure()
-// const isNotification=noti.length>0;
-//   const bellClass=isNotification?"fa-solid":"fa-regular";
+
 function handleNoti(){
 console.log('show notification')
   if(notiClass=='hidden'){
@@ -32,7 +29,7 @@ async function openNewMess(id) {
 body: JSON.stringify(),
   })
    const data = await result.json();
-  console.log(data.msgUser);
+  
 setSelectedConversation(data.msgUser)
 setNotiClass('hidden')
 // setNoti([])
@@ -51,7 +48,7 @@ function backButton(user){
 }
 // console.log("sender=",selectedConversation)
   return (<>
-    <div className="flex space-x-4  px-2 py-3 border bg-gray-700 cursor-pointer">
+    <div className="flex space-x-4  px-2 py-3 border bg-gray-700 cursor-pointer sticky">
     <i onClick={()=>{backButton(selectedConversation)}} className="fa-solid fa-arrow-left border rounded-lg hover:bg-slate-800 p-2 h-full"></i>
   <div className={`avatar ${isOnline?'online':'offline'}`}>
   <div onClick={onOpen} className="ring-primary ring-offset-base-100 w-14 rounded-full ring ring-offset-2">
