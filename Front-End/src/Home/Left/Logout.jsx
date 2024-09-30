@@ -9,7 +9,7 @@ export default function Logout() {
   const navigate=useNavigate();
 
     const handleSubmit=async()=>{
-      const response = await fetch("http://localhost:5173/user/logout", {
+      const response = await fetch("/user/logout", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

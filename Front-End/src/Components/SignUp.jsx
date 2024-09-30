@@ -74,7 +74,7 @@ export default function SignUp() {
             password:"",
         });
         
-        const response = await fetch("http://localhost:8080/user/signUp", {
+        const response = await fetch("/user/signUp", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

@@ -26,7 +26,7 @@ export default function Login() {
         event.preventDefault();
         // console.log(formData);
       
-        let result = await fetch("http://localhost:8080/user/login", {
+        let result = await fetch("/user/login", {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {

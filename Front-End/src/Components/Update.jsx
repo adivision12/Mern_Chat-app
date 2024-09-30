@@ -66,7 +66,7 @@ export default function Update() {
         console.log("image",image)
        
         
-        const response = await fetch("/api/user/update", {
+        const response = await fetch("/user/update", {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'

@@ -17,7 +17,7 @@ export default function GetMessage() {
                     // console.log(token);
                     // console.log("selectedConversation",selectedConversation._id)
                     // console.log("calling api")
-                    let result = await fetch(`http://localhost:8080/msg/${selectedConversation._id}`, {
+                    let result = await fetch(`/msg/${selectedConversation._id}`, {
                         method: "GET",
                         Credentials:"include",
                         

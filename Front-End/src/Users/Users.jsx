@@ -14,7 +14,7 @@ export default function AllUsers() {
             // const token=Cookies.get("jwt");
             const token=authUser.token;
             // console.log("token",token);
-            let result = await fetch("http://localhost:8080/user/getUsers", {
+            let result = await fetch("/user/getUsers", {
                 method: "GET",
                 Credentials:"include",
                 headers:{

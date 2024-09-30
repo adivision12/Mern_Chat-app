@@ -20,21 +20,10 @@ export default function Search() {
     event.preventDefault();
     console.log(search);
    if(!search) return;
-  //  const conversation=allUsers.find((user)=>{
-  //   if(user.username.toLowerCase().includes(search.toLowerCase())){
-  //     return user;
-  //   }
-    
-  //  })
-  //  console.log(conversation);
-  //  if(conversation){
-  //   setSelectedConversation(conversation);
-  //  }else{
-  //   alert("user not found")
-  //  }
+  
     setLoading(true);
     const token=authUser.token;
-    let result = await fetch(`http://localhost:5173/user/search?q=${search}`, {
+    let result = await fetch(`/user/search?q=${search}`, {
         method: "GET",
         Credentials:"include",
         headers:{
