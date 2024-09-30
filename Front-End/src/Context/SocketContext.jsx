@@ -27,7 +27,7 @@ console.log(authUser);
             console.log('hy');
 
             if(authUser?._id){
-                const socket=io("http://localhost:8080",{
+                const socket=io("https://mern-chat-app-4-s043.onrender.com",{
                     query:{
                         userId:authUser._id,
                     }
