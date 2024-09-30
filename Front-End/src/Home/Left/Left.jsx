@@ -47,7 +47,7 @@ const { isOpen, onOpen, onClose } = useDisclosure()
     }
   }
   return (
-    <div className={`w-[40%]  border border-red-900 h-screen max-[500px]:h-[90%] bg-black text-white flex max-[500px]:w-full $  ${isSideBar?'':'max-[500px]:hidden'} `}>
+    <div className={`w-[40%]  border border-red-900 h-screen max-[500px]:h-[90vh] bg-black text-white flex max-[500px]:w-full $  ${isSideBar?'':'max-[500px]:hidden'} `}>
           <Logout/>
     <div>
    <div className='flex justify-between  '>
