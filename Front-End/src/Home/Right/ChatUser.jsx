@@ -46,7 +46,6 @@ function backButton(user){
       setSelectedConversation();
   // navigate("/user")
 }
-// console.log("sender=",selectedConversation)
   return (<>
     <div className="flex space-x-4  px-2 py-3 border bg-gray-700 cursor-pointer">
     <i onClick={()=>{backButton(selectedConversation)}} className="fa-solid fa-arrow-left border rounded-lg hover:bg-slate-800 p-2 h-full"></i>
