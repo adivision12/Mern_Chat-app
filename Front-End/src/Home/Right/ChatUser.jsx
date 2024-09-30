@@ -27,7 +27,7 @@ console.log('show notification')
 }
 async function openNewMess(id) {
   if(id){
-    let result = await fetch(`http://localhost:8080/user/new/${id}`, {
+    let result = await fetch(`/user/new/${id}`, {
       method: "GET",
 body: JSON.stringify(),
   })

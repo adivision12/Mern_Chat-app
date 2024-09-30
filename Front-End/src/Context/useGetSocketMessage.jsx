@@ -17,13 +17,11 @@ export default function useGetSocketMessage() {
     // notification.play();
             if(seletedChat._id===newMessage.senderId){
             setMessages([...messages, newMessage]);
-            console.log('user is avl')
             
             }else{
                 setMessages([...messages]);
                 const notification=new Audio(sound);
                 notification.play();
-                console.log('user is not avl')
 
             }
         })

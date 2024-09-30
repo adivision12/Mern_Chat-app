@@ -27,20 +27,15 @@ export default function NoChat() {
       async function openNewMess(id) {
         
         if (id) {
-          let result = await fetch(`http://localhost:8080/user/new/${id}`, {
+          let result = await fetch(`/user/new/${id}`, {
             method: "GET",
             body: JSON.stringify(),
           })
           const data = await result.json();
-          console.log(data);
           setSelectedConversation(data.msgUser)
           setNotiClass('hidden')
-          console.log(noti.pop(id));
         }
       }
-      // function SeeProfile(){
-      //   navigate('/profile')
-      // }
   return (
          (<>
       <div className='h-20 bg-slate-800 border border-white '>

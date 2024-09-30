@@ -7,11 +7,8 @@ import { useSocketContext } from '../../Context/SocketContext.jsx';
 
 export default function SearchUsers() {
   const [authUser,setAuthUser]=useAuth();
-  // console.log("searchUser",search)
   const {searchUser,setSearchUser}=useSocketContext();
-//   console.log("filterUser",searchUser);
  function ClearSearch(){
-    // console.log('backed')
     setSearchUser([]);
     window.location.reload();
  }

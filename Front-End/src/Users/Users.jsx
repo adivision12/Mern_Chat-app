@@ -11,9 +11,7 @@ export default function AllUsers() {
     useEffect(()=>{
         setLoading(true);
          const getAllUsers=async()=>{
-            // const token=Cookies.get("jwt");
             const token=authUser.token;
-            // console.log("token",token);
             let result = await fetch("/user/getUsers", {
                 method: "GET",
                 Credentials:"include",
@@ -24,18 +22,14 @@ export default function AllUsers() {
                 body: JSON.stringify(),
             })
              const data = await result.json();
-            // console.log(data);
 
             setAllUsers(data.allUsers);
             setLoading(false);
          
         }
-         
-            // if (localStorage.getItem("userInfo")) {
-
-            
+        
                 getAllUsers();
-            // }
+        
          
     },[])
     return [allUsers,loading];

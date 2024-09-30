@@ -18,7 +18,6 @@ export default function Logout() {
     })
     
     const data = await response.json();
-    // console.log(data);
     toast.success("logout successfully");
 
     // localStorage.setItem("userInfo",JSON.stringify(data));

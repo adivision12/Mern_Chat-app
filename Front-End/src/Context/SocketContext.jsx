@@ -11,11 +11,8 @@ import useGetSocketMessage from "./useGetSocketMessage.jsx";
  }
 export const SocketProvider=({children})=>{
     const [socket,setSocket]=useState();
-    // const authUser=JSON.parse(localStorage.getItem("userInfo"));
     const [authUser,setAuthUser]=useAuth();
 
-    // console.log("authuser=",authUser)
-    // console.log("re-rendering")
 const [onlineUsers,setOnlineUsers]=useState([])
 const {selectedConversation}=userConversation();
 const [noti,setNoti]=useState([]);
@@ -24,7 +21,6 @@ const [searchUser,setSearchUser]=useState([]);
 const [newMessageAvl,setNewMessageAvl]=useState();
 console.log(authUser);
         useEffect(()=>{
-            console.log('hy');
 
             if(authUser?._id){
                 const socket=io("https://mern-chat-app-4-s043.onrender.com",{
@@ -34,11 +30,9 @@ console.log(authUser);
                 })
                 setSocket(socket);
                 
-               console.log('hello');
             
             socket.on("getOnline",(users)=>{
                     setOnlineUsers(users)
-                    console.log("users",users);
                    })
                    return ()=>socket.close();
                 }else{

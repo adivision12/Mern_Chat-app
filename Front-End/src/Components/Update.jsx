@@ -20,7 +20,6 @@ export default function Update() {
     const [image,setImage]=useState();
     const [authUser,setAuthUser]=useAuth();
     const id=authUser._id;
-    // console.log(authUser)
     const inputHandler=(event)=>{
         let a=event.target.name;
         let b=event.target.value
@@ -32,7 +31,7 @@ export default function Update() {
    async function handleFile(event){
     setLoading(true)
         let img=event.target.files[0];
-        console.log(img)
+        // console.log(img)
         if(img){
              setProgress('block');
         }
@@ -46,7 +45,7 @@ export default function Update() {
         })
         .then((res)=>res.json())
         .then((d)=>{
-            console.log(d.url)
+            // console.log(d.url)
             setImage(d.url);
             if(d.url){
                 setProgress('hidden');
@@ -63,7 +62,7 @@ export default function Update() {
     async function handleSubmit(event){
         event.preventDefault();
         // console.log(formData);
-        console.log("image",image)
+        // console.log("image",image)
        
         
         const response = await fetch("/user/update", {

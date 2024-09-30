@@ -11,12 +11,7 @@ export default function Messages() {
   const {messages,loading}=GetMessage();
   const { selectedConversation } = userConversation();
   const { socket,noti,setNoti } = useSocketContext();
-  // console.log('socket=',socket)
   useGetSocketMessage();
-  // console.log("message",messages);
-  // console.log("msgLength",messages.length);
-  
-  // console.log("loading",loading)
   const lastmsg=useRef();
   useEffect(()=>{
     setTimeout(()=>{
@@ -34,10 +29,8 @@ useEffect(()=>{
     socket.on("rec-message", (newMessage) => {
     
       if ( selectedChat._id===newMessage.senderId) {
-        console.log('selected')
         setNoti([...noti])
       }else{
-        console.log('not selected user')
         const notification=new Audio(sound);
         notification.play();
         if(noti && noti.map((n)=>{

@@ -18,7 +18,6 @@ export default function Search() {
   }
   async function handleSubmit(event){
     event.preventDefault();
-    console.log(search);
    if(!search) return;
   
     setLoading(true);
@@ -33,13 +32,10 @@ export default function Search() {
         body: JSON.stringify(),
     })
      const data = await result.json();
-    console.log(data.allUsers);
     // const filterUser=data.allUsers;
     setSearchUser(data.allUsers);
 
     setLoading(false);
-//  window.location.reload();
-// console.log("filterUser",filterUser);
 setSearch("");
 if(data.allUsers.length==0){
   toast.error('User not found')
@@ -47,9 +43,6 @@ if(data.allUsers.length==0){
 
 // return [searchUser]
       }
-      // console.log("searchUser",searchUser)
-         
-          // console.log(searchUser)
   
     
 

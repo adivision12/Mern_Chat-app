@@ -6,7 +6,6 @@ import { useAuth } from '../../Context/AuthProvider.jsx';
 
 export default function Users() {
   const [authUser,setAuthUser]=useAuth();
-  // console.log("searchUser",search)
   const [allUsers,loading]=AllUsers();
  
   return (<div className='overflow-y-auto h-[82%]'> 

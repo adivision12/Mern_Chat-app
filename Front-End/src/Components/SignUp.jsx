@@ -21,7 +21,6 @@ export default function SignUp() {
     });
     const [image,setImage]=useState();
     const [authUser,setAuthUser]=useAuth();
-    // console.log(authUser)
     const inputHandler=(event)=>{
         let a=event.target.name;
         let b=event.target.value
@@ -33,9 +32,8 @@ export default function SignUp() {
    async function handleFile(event){
     setLoading(true)
         let img=event.target.files[0];
-        // formData.append('file',img);
-        // setImage(img);
-        console.log(img)
+
+        // console.log(img)
         if(img){
             setProgress('block');
        }
@@ -49,7 +47,7 @@ export default function SignUp() {
         })
         .then((res)=>res.json())
         .then((d)=>{
-            console.log(d.url)
+            // console.log(d.url)
             setImage(d.url);
             if(d.url){
                 setProgress('hidden');
@@ -66,7 +64,7 @@ export default function SignUp() {
     async function handleSubmit(event){
         event.preventDefault();
         console.log(formData);
-        console.log(image)
+        // console.log(image)
         // 
         setFormData({
             email:"",
@@ -84,7 +82,6 @@ export default function SignUp() {
         
         const data = await response.json();
         setAuthUser(data);
-        console.log("data",data);
       
         if(data.success){
             localStorage.setItem("userInfo",JSON.stringify(data));

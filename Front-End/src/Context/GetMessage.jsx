@@ -12,11 +12,7 @@ export default function GetMessage() {
         if(selectedConversation && selectedConversation._id){
             try {
                 
-                    // const token=Cookies.get("token");
                     const token=JSON.parse(localStorage.getItem("userInfo")).token;
-                    // console.log(token);
-                    // console.log("selectedConversation",selectedConversation._id)
-                    // console.log("calling api")
                     let result = await fetch(`/msg/${selectedConversation._id}`, {
                         method: "GET",
                         Credentials:"include",
@@ -28,10 +24,9 @@ export default function GetMessage() {
                 body: JSON.stringify(),
                     })
                      const data = await result.json();
-                    console.log(data);
+
          
                     setMessages(data.message);
-                    // console.log("data",data);
                     setLoading(false);
                  
                 }

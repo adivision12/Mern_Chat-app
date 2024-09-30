@@ -1,13 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router';
-// import { toast } from 'react-toastify';
-// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { useAuth } from '../Context/AuthProvider';
 
 export default function Login() {
-    // const [isUser, setIsUser] = useState(JSON.parse(localStorage.getItem("userInfo")));
     const [authUser,setAuthUser]=useAuth();
     const navigate=useNavigate();
     const [formData,setFormData]=useState({
@@ -24,7 +21,6 @@ export default function Login() {
     };
     const handleSubmit=async(event)=>{
         event.preventDefault();
-        // console.log(formData);
       
         let result = await fetch("/user/login", {
             method: "POST",
@@ -34,8 +30,6 @@ export default function Login() {
             },
         })
         const data = await result.json();
-        console.log("data",data)
-        // console.log(data.success)
         setAuthUser(data);
         if(data.success){
             localStorage.setItem("userInfo",JSON.stringify(data));
@@ -47,11 +41,9 @@ export default function Login() {
             setTimeout(()=>{
                 navigate("/");
             },100);
-            // alert("login successfuly")
             toast.success("Login Successfully");
          
         }
-        console.log(data.message)
         if(!data.success){
             toast.error(data.message)
         }

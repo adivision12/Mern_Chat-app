@@ -13,22 +13,15 @@ import { useAuth } from '../../Context/AuthProvider';
 import NotificationBadge from 'react-notification-badge';
 import {Effect} from 'react-notification-badge';
 export default function Left({}) {
-//   const [selectedUser,setSelectedUser]=useState(null);
-// const [isSideBar,setIsSidebar]=useState(true);
 const navigate=useNavigate();
 const { selectedConversation,setSelectedConversation } = userConversation();
 
 const [authUser,setAuthUser]=useAuth();
 const { socket, noti, setNoti ,isSideBar,setIsSidebar,searchUser} = useSocketContext();
-// const isNotification=noti.length>0;
-
-// const bellClass=isNotification?"fa-solid":"fa-regular";
 
   const [notiClass, setNotiClass] = useState('hidden')
 const { isOpen, onOpen, onClose } = useDisclosure()
   function handleUserSelect(user){
-  //  console.log("user clicked");
-  //  setSelectedUser("selectedConversation");
   setIsSidebar(false)
   }
   function handleNoti() {
@@ -42,19 +35,17 @@ const { isOpen, onOpen, onClose } = useDisclosure()
 
   async function openNewMess(id) {
     if (id) {
-      let result = await fetch(`http://localhost:8080/user/new/${id}`, {
+      let result = await fetch(`/user/new/${id}`, {
         method: "GET",
         body: JSON.stringify(),
       })
       const data = await result.json();
-      // console.log(data.msgUser);
       setSelectedConversation(data.msgUser)
       setNotiClass('hidden')
       setIsSidebar(false)
       
     }
   }
-  // console.log("selectedConversation",selectedConversation)
   return (
     <div className={`w-[40%]  border border-red-900 h-screen bg-black text-white flex max-[500px]:w-full $  ${isSideBar?'':'max-[500px]:hidden'} `}>
           <Logout/>
