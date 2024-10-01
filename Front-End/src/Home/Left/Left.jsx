@@ -14,7 +14,7 @@ import NotificationBadge from 'react-notification-badge';
 import {Effect} from 'react-notification-badge';
 export default function Left({}) {
 const navigate=useNavigate();
-const { selectedConversation,setSelectedConversation } = userConversation();
+const { setSelectedConversation } = userConversation();
 
 const [authUser,setAuthUser]=useAuth();
 const { socket, noti, setNoti ,isSideBar,setIsSidebar,searchUser} = useSocketContext();
