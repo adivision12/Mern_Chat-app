@@ -187,7 +187,7 @@ module.exports.update=async(req,res)=>{
 }
 
 
-module.exports.update=async(req,res)=>{
+module.exports.changePassword=async(req,res)=>{
     try {
         const {email,password}=req.body;
         const updatedUser=await User.findOneAndUpdate({email:email});

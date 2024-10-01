@@ -12,6 +12,7 @@ import { useAuth } from "./Context/AuthProvider";
 
 import { ChakraProvider } from '@chakra-ui/react'
 import Update from "./Components/Update.jsx";
+import ChangePassword from "./Components/ChangePassword.jsx";
 function App() {
 const [authUser,setAuthUser]=useAuth();
 
@@ -25,6 +26,7 @@ const [authUser,setAuthUser]=useAuth();
 
     <Route path="/signUp" element={<SignUp/>}/>
     <Route path="/login" element={<Login/>}/>
+    <Route path="/password" element={<ChangePassword/>}/>
     
     <Route path="/" element={
       ( authUser )?<div className="flex">

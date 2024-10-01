@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function ChangePassword() {
     const navigate=useNavigate();
-    const [loading,setLoading]=useState(false);
     const [formData,setFormData]=useState({
         email:"",
         password:"",
@@ -62,7 +61,7 @@ export default function ChangePassword() {
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
     
             <label htmlFor="username">Email : </label>
-            <input type="text" placeholder={authUser.username} name='username' value={formData.email}  onChange={inputHandler} className='border-2 bg-gray-200 focus:outline-none focus:border-sky-700  w-full rounded-md' />
+            <input type="text" placeholder='Enter Email' name='username' value={formData.email}  onChange={inputHandler} className='border-2 bg-gray-200 focus:outline-none focus:border-sky-700  w-full rounded-md' />
             <br /><br />
                         <label htmlFor="password">Password : </label>
             <input type="text" placeholder='Enter password' name='password' value={formData.password} onChange={inputHandler} className='border-2 bg-gray-200 w-full rounded-md focus:outline-none focus:border-sky-700'  />
