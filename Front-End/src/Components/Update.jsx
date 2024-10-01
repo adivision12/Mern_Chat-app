@@ -115,8 +115,9 @@ export default function Update() {
             <br />
             <label htmlFor="password">Password : </label>
             <input type="text" placeholder={authUser.password} name='password' value={formData.password} onChange={inputHandler} className='border-2 bg-gray-200 w-full rounded-md focus:outline-none focus:border-sky-700'  />
-            <br /> <br />
-           
+            <br />
+            <a onClick={()=>{ navigate("/password")
+}} className='text-sm font-bold text-blue-900 flex justify-end'>Forget Password?</a>
            
             <button className='border border-black w-full bg-blue-900 rounded-lg  text-white'>Submit</button>
         </form>

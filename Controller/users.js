@@ -139,7 +139,7 @@ module.exports.getMsgUser=async(req,res)=>{
 
 module.exports.update=async(req,res)=>{
     try {
-      
+      const user=await User.findById(req.body.id);
         const updatedUser=await User.findByIdAndUpdate(req.body.id);
         const {username,password}=req.body.formData;
         const image=req.body.image;
@@ -152,19 +152,22 @@ module.exports.update=async(req,res)=>{
         const user_name=await User.findOne({username});
         if(user_name){
             return res.json({message:"Username must be unique",success:false});
+        }if(!password){
+            return res.json({message:"Enter password to update"});       
         }
+        const isMatch= await bcrypt.compare(password,user.password)
+    if( !isMatch){
+        return res.json({message:" password incorrect"});       
+    }
        if(username){
         updatedUser.username=username;
-       }
-       if(password){
-        updatedUser.password=password;
        }
        if(image){
         updatedUser.image=image;
        }
        updatedUser.save().then((res)=>console.log('details updated successfully')).catch((e)=>console.log('error in updating'));
 
-        console.log(updatedUser);
+        // console.log(updatedUser);
         
             res.json({
                 _id:updatedUser._id,
@@ -177,6 +180,30 @@ module.exports.update=async(req,res)=>{
                 success:true
             })
                // console.log(req.body);
+        
+    } catch (error) {
+        console.log('error in update',error)
+    }
+}
+
+
+module.exports.update=async(req,res)=>{
+    try {
+        const {email,password}=req.body;
+        const updatedUser=await User.findOneAndUpdate({email:email});
+        if( !password && !email){
+           return res.json({
+                message:'Fill the details',
+                success:false
+            })
+        
+        }if(!password){
+            return res.json({message:"Enter password to update"});       
+        }else{
+            updatedUser.password=password;
+        }
+       updatedUser.save().then((res)=>console.log('Password Changed successfully')).catch((e)=>console.log('error in updating'));
+
         
     } catch (error) {
         console.log('error in update',error)
