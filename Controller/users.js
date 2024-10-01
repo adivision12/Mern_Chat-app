@@ -190,13 +190,12 @@ module.exports.update=async(req,res)=>{
 module.exports.changePassword=async(req,res)=>{
     try {
         const {email,password}=req.body;
-        const updatedPassUser=await User.findOneAndUpdate({email:email});
+        const updatedPassUser=await User.findOneAndUpdate({email});
         if( !password && !email){
-           return res.json({
+            return res.json({
                 message:'Fill the details',
                 success:false
             })
-        
         }if(!password){
             return res.json({message:"Enter password to update"});       
         }else{
@@ -207,7 +206,6 @@ module.exports.changePassword=async(req,res)=>{
             message:'Password changed',
             success:true
         });
-        
     } catch (error) {
         console.log('error in update',error)
     }
