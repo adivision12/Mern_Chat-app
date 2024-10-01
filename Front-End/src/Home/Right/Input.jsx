@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import userConversation from '../../stateManage/userConversation.js';
 import toast, { Toaster } from 'react-hot-toast';
-
+import sound from './../../assets/sound.mp4'
 import { useAuth } from '../../Context/AuthProvider.jsx';
 import { useSocketContext } from '../../Context/SocketContext.jsx';
 import Typing from '../../Components/Typing.jsx';
@@ -50,6 +50,8 @@ export default function Input() {
     
   }
   async function handleSubmit(event){
+    const notification=new Audio(sound);
+    notification.play();
     event.preventDefault();
     socket.on('stop-typing',()=>{
       setIsTyping(false)

@@ -30,8 +30,8 @@ export default function Logout() {
     
   return (<>
     <Toaster />
-    <button onClick={handleSubmit}  className='bg-slate-950 text-2xl flex flex-col justify-end bottom-4'><a onClick={()=>{ navigate("/login")
-}}><i  className="fa-solid fa-right-from-bracket"></i></a></button>
+    <button onClick={handleSubmit}  className='bg-slate-900 text-2xl flex flex-col justify-end '><a onClick={()=>{ navigate("/login")
+}}><i  className="fa-solid fa-right-from-bracket mb-10"></i></a></button>
  </>
   )
 }
