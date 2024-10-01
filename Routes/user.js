@@ -1,7 +1,6 @@
 const express=require("express");
 const {signUp,login, logout, getUsers, getSearchUsers, getMsgUser, update}=require("../Controller/users.js");
 const { secureRoute } = require("../middleware.js/secureRoute.js");
-// const passport  = require("passport");
 
 const router=express.Router();
 

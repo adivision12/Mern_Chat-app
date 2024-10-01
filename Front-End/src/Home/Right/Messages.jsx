@@ -27,12 +27,12 @@ useEffect(()=>{
   selectedChat=selectedConversation;
   if (socket && socket.connected) {
     socket.on("rec-message", (newMessage) => {
-    
+      const notification=new Audio(sound);
+      notification.play();
       if ( selectedChat._id===newMessage.senderId) {
         setNoti([...noti])
       }else{
-        const notification=new Audio(sound);
-        notification.play();
+   
         if(noti && noti.map((n)=>{
           if(n.senderId===newMessage.senderId) noti.pop(n.senderId)
         }))
