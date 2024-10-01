@@ -11,7 +11,7 @@ import useGetSocketMessage from "./useGetSocketMessage.jsx";
  }
 export const SocketProvider=({children})=>{
     const [socket,setSocket]=useState();
-    const [authUser,setAuthUser]=useAuth();
+    const [authUser]=useAuth();
 
 const [onlineUsers,setOnlineUsers]=useState([])
 const {selectedConversation}=userConversation();
