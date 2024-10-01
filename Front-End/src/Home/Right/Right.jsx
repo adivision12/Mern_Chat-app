@@ -33,7 +33,8 @@ if (socket && socket.connected) {
       <ChatUser />
 
       <Messages />
-      <div>      <Input/>
+      <div> 
+             <Input/>
       </div>
     </div>) :(
       <div className='w-full h-screen border-2 border-red-900  bg-slate-800 text-white users'>

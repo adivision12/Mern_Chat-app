@@ -22,7 +22,7 @@ function getReceiverSocketId(receiverId){
 
 const users={};
 io.on("connection",(socket)=>{
-    console.log('kk')
+
     console.log("new client connected",socket.id);
     const userId=socket.handshake.query.userId;
     console.log("userId",userId)

@@ -140,7 +140,7 @@ module.exports.getMsgUser=async(req,res)=>{
 module.exports.update=async(req,res)=>{
     try {
       
-        const user=await User.findOne({_id:req.body.id});
+        const updatedUser=await User.findByIdAndUpdate(req.body.id);
         const {username,password}=req.body.formData;
         const image=req.body.image;
         if(!username && !password && !image){
@@ -154,25 +154,25 @@ module.exports.update=async(req,res)=>{
             return res.json({message:"Username must be unique",success:false});
         }
        if(username){
-        user.username=username;
+        updatedUser.username=username;
        }
        if(password){
-        user.password=password;
+        updatedUser.password=password;
        }
        if(image){
-        user.image=image;
+        updatedUser.image=image;
        }
-       user.save().then((res)=>console.log('details updated successfully')).catch((e)=>console.log('error in updating'));
+       updatedUser.save().then((res)=>console.log('details updated successfully')).catch((e)=>console.log('error in updating'));
 
-        console.log(user);
+        console.log(updatedUser);
         
             res.json({
-                _id:user._id,
-                email:user.email,
-                username:user.username,
-                password:user.password,
-                image:user.image,
-                token:generateToken(user._id,res),
+                _id:updatedUser._id,
+                email:updatedUser.email,
+                username:updatedUser.username,
+                password:updatedUser.password,
+                image:updatedUser.image,
+                token:generateToken(updatedUser._id,res),
                 message:"Updated successfully",
                 success:true
             })
