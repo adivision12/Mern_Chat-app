@@ -140,7 +140,7 @@ module.exports.getMsgUser=async(req,res)=>{
 module.exports.update=async(req,res)=>{
     try {
       const user=await User.findById(req.body.id);
-        const updatedUser=await User.findByIdAndUpdate(req.body.id);
+        const updatedUser=await User.findByIdAndUpdate(req.body.id,{...req.body.formData});
         const {username,password}=req.body.formData;
         const image=req.body.image;
         if(!username && !password && !image){
@@ -166,7 +166,7 @@ module.exports.update=async(req,res)=>{
        if(image){
         updatedUser.image=image;
        }
-       updatedUser.save().then((res)=>console.log('details updated successfully')).catch((e)=>console.log('error in updating'));
+     await  updatedUser.save().then((res)=>console.log('details updated successfully')).catch((e)=>console.log('error in updating'));
 
         // console.log(updatedUser);
         
@@ -174,7 +174,6 @@ module.exports.update=async(req,res)=>{
                 _id:updatedUser._id,
                 email:updatedUser.email,
                 username:updatedUser.username,
-                password:updatedUser.password,
                 image:updatedUser.image,
                 token:generateToken(updatedUser._id,res),
                 message:"Updated successfully",
