@@ -156,10 +156,10 @@ module.exports.update=async(req,res)=>{
         }if(!password){
             return res.json({message:"Enter password to update"});       
         }
-        const isMatch= await bcrypt.compare(password,user.password)
-    if( !isMatch){
-        return res.json({message:" password incorrect"});       
-    }
+    //     const isMatch= await bcrypt.compare(password,user.password)
+    // if( !isMatch){
+    //     return res.json({message:" password incorrect"});       
+    // }
        if(username){
         updatedUser.username=username;
        }
