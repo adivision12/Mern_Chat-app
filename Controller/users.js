@@ -149,6 +149,10 @@ module.exports.update=async(req,res)=>{
                 success:false
             })
         }
+        const user_email=await User.findOne({email});
+        if(user_email){
+            return res.json({message:"Email already exist",success:false});
+        }
         const user_name=await User.findOne({username});
         if(user_name){
             return res.json({message:"Username must be unique",success:false});
