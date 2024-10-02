@@ -143,7 +143,7 @@ module.exports.update=async(req,res)=>{
       const {username,password}=req.body.formData;
         const updatedUser=await User.findByIdAndUpdate(req.body.id,{...password});
         const image=req.body.image;
-        if(!username && !password && !image){
+        if(!username  && !image){
            return res.json({
                 message:'Update SomeThing or Go Back',
                 success:false
@@ -157,9 +157,9 @@ module.exports.update=async(req,res)=>{
             return res.json({message:"Enter password to update"});       
         }
     //     const isMatch= await bcrypt.compare(password,user.password)
-    // if( !isMatch){
-    //     return res.json({message:" password incorrect"});       
-    // }
+    if( password!=user.password){
+        return res.json({message:" password incorrect"});       
+    }
        if(username){
         updatedUser.username=username;
        }
