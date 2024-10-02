@@ -194,7 +194,7 @@ module.exports.update=async(req,res)=>{
 module.exports.changePassword=async(req,res)=>{
     try {
         const {email,password}=req.body;
-        const updatedPassUser=await User.findOneAndUpdate({email});
+        const updatedPassUser=await User.findOneAndUpdate({email},{...req.body.password});
         if( !password && !email){
             return res.json({
                 message:'Fill the details',
@@ -205,7 +205,7 @@ module.exports.changePassword=async(req,res)=>{
         }else{
             updatedPassUser.password=password;
         }
-        updatedPassUser.save().then((res)=>console.log('Password Changed successfully')).catch((e)=>console.log('error in updating',e));
+        await updatedPassUser.save().then((res)=>console.log('Password Changed successfully')).catch((e)=>console.log('error in updating',e));
         return res.json({
             message:'Password changed',
             success:true
