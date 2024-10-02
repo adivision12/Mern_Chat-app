@@ -201,11 +201,14 @@ module.exports.changePassword=async(req,res)=>{
         }else{
             updatedPassUser.password=password;
         }
-        await updatedPassUser.save().then((res)=>console.log('Password Changed successfully')).catch((e)=>console.log('error in updating',e));
-        return res.json({
-            message:'Password changed',
-            success:true
-        });
+        await updatedPassUser.save().then((res)=>console.log('Password Changed successfully')).catch((e)=>res.json({message:e}));
+        if(updatedPassUser){
+            return res.json({
+                message:'Password changed',
+                success:true
+            });
+        }
+        
     } catch (error) {
         console.log('error in update',error)
     }
