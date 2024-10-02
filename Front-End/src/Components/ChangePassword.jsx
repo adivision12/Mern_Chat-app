@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import 'react-toastify/dist/ReactToastify.css';
 import toast, { Toaster } from 'react-hot-toast';
+import { useAuth } from '../Context/AuthProvider';
 
 
 export default function ChangePassword() {
+    const [authUser,setAuthUser]=useAuth();
+
     const navigate=useNavigate();
     const [formData,setFormData]=useState({
         email:"",
@@ -22,6 +25,10 @@ export default function ChangePassword() {
    
     
     async function handleSubmit(event){
+        if(formData.email!=authUser.email){
+            toast.error('enter valid email')
+            return;
+        }
         event.preventDefault();
         const response = await fetch("/user/password", {
             method: "PUT",
