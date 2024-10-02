@@ -141,7 +141,7 @@ module.exports.update=async(req,res)=>{
     try {
       const user=await User.findById(req.body.id);
       const {username,password}=req.body.formData;
-        const updatedUser=await User.findByIdAndUpdate(req.body.id,{...username,...password});
+        const updatedUser=await User.findByIdAndUpdate(req.body.id,{...password});
         const image=req.body.image;
         if(!username && !password && !image){
            return res.json({
