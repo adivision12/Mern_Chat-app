@@ -10,12 +10,11 @@ export default function Users() {
   const [allUsers,loading]=AllUsers();
   const [chatUser,setChatUser]=useState();
   const { socket } = useSocketContext();
-console.log('user of users')
   useEffect(()=>{
     if (socket && socket.connected) {
       socket.on("rec-message", (newMessage) => {
         setChatUser(newMessage);
-        // console.log('chatUser',chatUser)
+        console.log(newMessage)
       }
     )}
   },[chatUser])
