@@ -3,6 +3,7 @@ import User from './User'
 import AllUsers from '../../Users/Users.jsx';
 import Search from './Search.jsx';
 import { useAuth } from '../../Context/AuthProvider.jsx';
+import { useSocketContext } from '../../Context/SocketContext.jsx';
 
 export default function Users() {
   const [authUser,setAuthUser]=useAuth();
