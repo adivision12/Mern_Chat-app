@@ -17,7 +17,7 @@ export default function Users() {
         console.log(newMessage)
       }
     )}
-  },[chatUser])
+  },[])
   console.log("chatUser1",chatUser)
   return (<div className='overflow-y-auto h-[82%]'> 
    {chatUser && allUsers.map((user,idx)=>{
