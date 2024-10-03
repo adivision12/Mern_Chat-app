@@ -18,7 +18,7 @@ export default function ({message}) {
 
     <div>
      { <div className={`chat ${chatName}`}>
-        <div className={`chat-bubble chat-bubble-accent ${chatColor}`}>{message.message}</div>
+        <div className={`chat-bubble chat-bubble-accent mx-2 ${chatColor}`}>{message.message}</div>
         <br />
         <div className='text-sm'> {formatTime}</div>
         </div>
