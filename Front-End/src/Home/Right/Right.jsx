@@ -27,7 +27,7 @@ if (socket && socket.connected) {
 
 
   return (<>
-      <div  className={` w-full  max-[500px]:h-[90%] ${isSideBar?'max-[500px]:hidden':''} `}>
+      <div  className={` w-full  max-[500px]:h-[90%] absolute ${isSideBar?'max-[500px]:hidden':''} `}>
     {selectedConversation ? (<div className='w-full  h-screen max-[500px]:h-[95vh] border-2 border-red-900  bg-slate-800 text-white '>
      
       <ChatUser />
