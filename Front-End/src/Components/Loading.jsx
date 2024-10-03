@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Loading() {
   return (
-    <div className='flex h-[88%] justify-center items-center bg-gray-500'>
+    <div className='flex h-full justify-center items-center bg-gray-500'>
         <div className="flex w-52 flex-col gap-4">
   <div className="skeleton h-32 w-full"></div>
   <div className="skeleton h-4 w-28"></div>

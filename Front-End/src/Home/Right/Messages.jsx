@@ -42,7 +42,7 @@ useEffect(()=>{
     })
   }
 },[selectedConversation,selectedChat])
-  return (<div className={` overflow-y-auto max-h-[65%]  `}>
+  return (<div className={` overflow-y-auto h-[65%] `}>
     {loading?(<Loading></Loading>):( messages.length>0 && messages.map((message)=>{
      return <div ref={lastmsg} key={message._id} > <Message key={message._id} message={message}/></div>
     }))}
