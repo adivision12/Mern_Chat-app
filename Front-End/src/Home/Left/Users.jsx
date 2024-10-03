@@ -19,6 +19,7 @@ console.log('user of users')
       }
     )}
   },[chatUser])
+  console.log("chatUser",chatUser)
   return (<div className='overflow-y-auto h-[82%]'> 
    {chatUser && allUsers.map((user,idx)=>{
     if(chatUser===user._id){
