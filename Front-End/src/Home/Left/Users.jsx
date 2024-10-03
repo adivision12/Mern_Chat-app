@@ -13,7 +13,7 @@ export default function Users() {
   useEffect(()=>{
     console.log('useEffect')
     if (socket && socket.connected) {
-      ('socked connected')
+     console.log('socked connected')
       socket.on("rec-message", (newMessage) => {
         console.log('msg rcv')
         setChatUser(newMessage);
