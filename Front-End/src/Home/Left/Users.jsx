@@ -14,12 +14,12 @@ console.log('user of users')
   useEffect(()=>{
     if (socket && socket.connected) {
       socket.on("rec-message", (newMessage) => {
-        setChatUser(newMessage.receiverId);
-        console.log('chatUser',chatUser)
+        setChatUser(newMessage);
+        // console.log('chatUser',chatUser)
       }
     )}
   },[chatUser])
-  console.log("chatUser",chatUser)
+  console.log("chatUser1",chatUser)
   return (<div className='overflow-y-auto h-[82%]'> 
    {chatUser && allUsers.map((user,idx)=>{
     if(chatUser===user._id){
