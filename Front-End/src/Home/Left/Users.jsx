@@ -11,6 +11,7 @@ export default function Users() {
   const [chatUser,setChatUser]=useState();
   const { socket } = useSocketContext();
   useEffect(()=>{
+    console.log('useEffect')
     if (socket && socket.connected) {
       ('socked connected')
       socket.on("rec-message", (newMessage) => {
@@ -20,7 +21,7 @@ export default function Users() {
       }
     )}
   },[])
-  console.log("chatUser1",chatUser)
+  // console.log("chatUser1",chatUser)
   return (<div className='overflow-y-auto h-[82%]'> 
    {chatUser && allUsers.map((user,idx)=>{
     if(chatUser===user._id){
