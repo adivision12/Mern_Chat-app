@@ -17,8 +17,8 @@ function App() {
 const [authUser,setAuthUser]=useAuth();
 
   return (
-    
-     <ChakraProvider>
+    <div className="h-screen">
+         <ChakraProvider>
 
   <BrowserRouter>
   <Routes>
@@ -42,7 +42,8 @@ const [authUser,setAuthUser]=useAuth();
   </Routes>
 
   </BrowserRouter>
-    </ChakraProvider>    
+    </ChakraProvider> 
+    </div>   
   )
 }
 
