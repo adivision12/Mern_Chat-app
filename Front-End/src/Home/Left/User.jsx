@@ -13,7 +13,6 @@ export default function User({user}){
   const {socket,onlineUsers,noti, setNoti,newMessageAvl,setNewMessageAvl }=useSocketContext();
   const isOnline=onlineUsers.includes(user._id);
 
-  console.log(socket)
   function handleClick(user){
       if(selectedConversation?._id===user._id){
         setNewMessageAvl();
