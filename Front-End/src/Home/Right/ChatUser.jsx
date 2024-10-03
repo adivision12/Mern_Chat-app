@@ -47,7 +47,7 @@ function backButton(user){
   // navigate("/user")
 }
   return (<>
-    <div className="flex space-x-4  px-2 py-3 border bg-gray-700 cursor-pointer absolute top-0">
+    <div className="flex space-x-4  px-2 py-3 border bg-gray-700 cursor-pointer">
     <i onClick={()=>{backButton(selectedConversation)}} className="fa-solid fa-arrow-left border rounded-lg hover:bg-slate-800 p-2 h-full"></i>
   <div className={`avatar ${isOnline?'online':'offline'}`}>
   <div onClick={onOpen} className="ring-primary ring-offset-base-100 w-14 rounded-full ring ring-offset-2">
