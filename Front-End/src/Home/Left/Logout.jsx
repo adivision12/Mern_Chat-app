@@ -8,6 +8,10 @@ export default function Logout() {
   const navigate=useNavigate();
 
     const handleSubmit=async()=>{
+      const logout=confirm("Are you want to logged out");
+      if(!logout){
+        return;
+      }
       const response = await fetch("/user/logout", {
         method: "POST",
         headers: {
