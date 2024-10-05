@@ -42,9 +42,13 @@ export default function ChangePassword() {
                 password:"",
             });
 
-            setTimeout(()=>{
-                navigate("/");
-            },100)
+            if(authUser){
+                setTimeout(()=>{
+                    navigate("/");
+                },100)
+            }else{
+                navigate("/login");
+            }
             toast.success("Password changed Successfully")
            
         }
