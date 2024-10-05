@@ -7,10 +7,12 @@ import useGetSocketMessage from '../../Context/useGetSocketMessage.jsx';
 import { useSocketContext } from '../../Context/SocketContext.jsx';
 import userConversation from '../../stateManage/userConversation.js';
 import sound from '../../assets/sound.mp4';
+import { useAuth } from '../../Context/AuthProvider.jsx';
 export default function Messages() {
   const {messages,setMessages,loading}=GetMessage();
   const { selectedConversation } = userConversation();
   const { socket,noti,setNoti } = useSocketContext();
+  const [authUser,setAuthUser]=useAuth();
 
   useGetSocketMessage();
   const lastmsg=useRef();
@@ -43,7 +45,8 @@ useEffect(()=>{
     })
   }
 
-},[selectedConversation,selectedChat])
+},[selectedConversation,selectedChat]);
+
 async function sendHi(){
   const message="Hii";
   if(message && selectedConversation ){
