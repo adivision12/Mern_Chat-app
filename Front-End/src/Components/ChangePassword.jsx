@@ -59,7 +59,8 @@ export default function ChangePassword() {
     }
   return (<>    
          <Toaster />
-        <div className='flex justify-center items-center h-20 sticky top-0 w-full'> <div className='text-blue-800 font-bold  text-4xl '>Chat App  <i className='fa-solid fa-fire-flame-curved'></i></div></div>
+        <div className='flex justify-center items-center h-20 sticky top-0 w-full bg-white'> <div className='text-blue-800 font-bold  text-4xl '>Chat App  <i className='fa-solid fa-fire-flame-curved'></i></div>
+        </div>
     <div className='h-[32rem] flex justify-center items-center bg-gray-300 max-[400px]:h-[50rem]'>
         <div className=' p-6 rounded-lg bg-white'>
         <div className='text-blue-800 font-bold text-xl'><h1>Messenger</h1></div>
