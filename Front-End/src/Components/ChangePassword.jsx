@@ -25,10 +25,6 @@ export default function ChangePassword() {
    
     
     async function handleSubmit(event){
-        if(formData.email!=authUser.email){
-            toast.error('enter valid email')
-            return;
-        }
         event.preventDefault();
         const response = await fetch("/user/password", {
             method: "PUT",
