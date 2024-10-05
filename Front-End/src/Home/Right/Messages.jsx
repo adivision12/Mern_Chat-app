@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import Message from './Message'
 import GetMessage from '../../Context/GetMessage';
 import Loading from '../../Components/Loading.jsx'
-import io from 'socket.io-client';
 import useGetSocketMessage from '../../Context/useGetSocketMessage.jsx';
 import { useSocketContext } from '../../Context/SocketContext.jsx';
 import userConversation from '../../stateManage/userConversation.js';
@@ -12,7 +11,6 @@ export default function Messages() {
   const {messages,setMessages,loading}=GetMessage();
   const { selectedConversation } = userConversation();
   const { socket,noti,setNoti } = useSocketContext();
-  const [authUser,setAuthUser]=useAuth();
 
   useGetSocketMessage();
   const lastmsg=useRef();
@@ -47,30 +45,13 @@ useEffect(()=>{
 
 },[selectedConversation,selectedChat]);
 
-async function sendHi(){
-  const message="Hii";
-  if(message && selectedConversation ){
-    const token=authUser.token;
-    let result = await fetch(`/msg/send/${selectedConversation._id}`, {
-      method: "POST",
-      body: JSON.stringify({message}),
-      Credentials:"include",
-         headers:{
-               authorization:`Bearer ${token}`,
-               'Content-Type': 'application/json'
-           },
-  })
-  const data = await result.json();
-  setMessages([...messages,data.newMessage])
- 
-  }
-}
+
   return (<div className={` overflow-y-auto h-[70vh] `}>
     {loading?(<Loading></Loading>):( messages.length>0 && messages.map((message)=>{
      return <div ref={lastmsg} key={message._id} > <Message key={message._id} message={message}/></div>
     }))}
      <div className='p-4 '>
-      { !loading && !messages.length>0 && <div><p onClick={sendHi} className='text-center bg-slate-600 rounded-md '>Say Hii </p></div> }
+      { !loading && !messages.length>0 && <div  ><p className='text-center bg-slate-600 rounded-md '>Say Hii </p></div> }
       
 
     </div>
