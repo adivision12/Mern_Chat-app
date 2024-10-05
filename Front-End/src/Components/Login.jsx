@@ -53,7 +53,7 @@ export default function Login() {
 
   return (<>
     <Toaster />
-    <div className='flex justify-center items-center h-20'> <div className='text-blue-800 font-bold  text-4xl'> <a className='none' href="https://mern-chat-app-4-s043.onrender.com/">Chat App </a> <i className='fa-solid fa-fire-flame-curved'></i></div></div>
+    <div className='flex justify-center items-center h-20 sticky top-0 w-full'> <div className='text-blue-800 font-bold  text-4xl'> <a className='none' href="https://mern-chat-app-4-s043.onrender.com/">Chat App </a> <i className='fa-solid fa-fire-flame-curved'></i></div></div>
 
     <div className='h-[35rem] flex justify-center items-center bg-gray-300 max-[400px]:h-[45rem]'>
         <div className=' p-6 rounded-lg bg-white '>
