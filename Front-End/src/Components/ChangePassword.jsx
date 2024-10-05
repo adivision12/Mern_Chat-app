@@ -59,8 +59,8 @@ export default function ChangePassword() {
     }
   return (<>    
          <Toaster />
-        <div className='flex justify-center items-center h-20'> <div className='text-blue-800 font-bold  text-4xl'>Chat App  <i className='fa-solid fa-fire-flame-curved'></i></div></div>
-    <div className='h-[35rem] flex justify-center items-center bg-gray-300 max-[400px]:h-[50rem]'>
+        <div className='flex justify-center items-center h-20'> <div className='text-blue-800 font-bold  text-4xl fixed top-0 w-full'>Chat App  <i className='fa-solid fa-fire-flame-curved'></i></div></div>
+    <div className='h-[32rem] flex justify-center items-center bg-gray-300 max-[400px]:h-[50rem]'>
         <div className=' p-6 rounded-lg bg-white'>
         <div className='text-blue-800 font-bold text-xl'><h1>Messenger</h1></div>
         <div>Reset Your Password</div>
@@ -73,7 +73,7 @@ export default function ChangePassword() {
                         <label htmlFor="password">Password : </label>
             <input type="text" placeholder='Enter password' name='password' value={formData.password} onChange={inputHandler} className='border-2 bg-gray-200 w-full rounded-md focus:outline-none focus:border-sky-700'  />
             <br />
-           
+           <br />
             <button className='border border-black w-full bg-blue-900 rounded-lg  text-white'>Submit</button>
         </form>
         <p>Don't want to Change Password? <a onClick={()=>{ navigate("/")
