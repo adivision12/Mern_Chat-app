@@ -193,6 +193,12 @@ module.exports.changePassword=async(req,res)=>{
     try {
         const {email,password}=req.body;
         const updatedPassUser=await User.findOneAndUpdate({email},{...req.body.password});
+        if(!updatedPassUser){
+            return res.json({
+                message:'User not exists',
+                success:false
+            })
+        }
         if( !password && !email){
             return res.json({
                 message:'Fill the details',
