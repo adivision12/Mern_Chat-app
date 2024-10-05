@@ -9,9 +9,7 @@ export default function Logout() {
 
     const handleSubmit=async()=>{
       const logout=confirm("Are you want to logged out");
-      if(!logout){
-        return;
-      }
+      if(logout){      
       const response = await fetch("/user/logout", {
         method: "POST",
         headers: {
@@ -26,7 +24,7 @@ export default function Logout() {
     localStorage.removeItem("userInfo")
     window.location.reload();
 
-    
+  }
     }
     
   return (<>
